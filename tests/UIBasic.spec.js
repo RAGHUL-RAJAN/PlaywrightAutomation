@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test')
 
-test.only('first playwright test',async ({page})=>
+test('first playwright test',async ({page})=>
 {
     const userName = page.locator("[placeholder='Email']");
     const signIn = page.locator("//span[text()='Sign in']");
@@ -22,3 +22,16 @@ test.only('first playwright test',async ({page})=>
     // console.log(await page.locator("//label[text()='Email']//parent::div//p").textContent);
 
 });
+
+test.only("UI basic",async({page})=>{
+
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+
+    const userName = page.locator('#username');
+    const signIn = page.locator('#signInBtn');
+    const dropdown = await page.locator('select.form-control');
+    dropdown.selectOption("consult");
+
+    await page.pause();
+
+})
