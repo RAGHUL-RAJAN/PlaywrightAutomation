@@ -50,7 +50,7 @@ test("UI basic",async({page})=>{
 
 })
 
-test.only('child windows handling',async({browser})=>
+test('child windows handling',async({browser})=>
     {
 
     const context = await browser.newContext();
