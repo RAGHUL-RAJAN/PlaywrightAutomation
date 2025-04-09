@@ -8,9 +8,6 @@
 //     // await page.waitForLoadState("networkidle")
 // })
 
-
-
-
 const { test, expect } = require('@playwright/test');
 
 test('@Web Client App login', async ({ page }) => {
