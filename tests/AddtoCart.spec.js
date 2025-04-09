@@ -44,8 +44,9 @@ test("Addto Carts", async ({ page }) => {
     email
   );
   await page.locator(".action__submit").click();
-  await expect(
-    page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
+  await expect(page.locator(".hero-primary")).toHaveText(
+    " Thankyou for the order. "
+  );
   const orderId = await page
     .locator(".em-spacer-1 .ng-star-inserted")
     .textContent();
@@ -55,21 +56,16 @@ test("Addto Carts", async ({ page }) => {
   await page.locator("tbody").waitFor();
   const row = await page.locator("tbody tr");
 
-  for(let i =0; i < await row.count(); ++i){
-   const rowOrderId = await row.nth(i).locator("th").textContent();
-   if(orderId.includes(rowOrderId)){
-    await row.nth(i).locator("button").first().click();
-    break;
-   }
-
+  for (let i = 0; i < (await row.count()); ++i) {
+    const rowOrderId = await row.nth(i).locator("th").textContent();
+    if (orderId.includes(rowOrderId)) {
+      await row.nth(i).locator("button").first().click();
+      break;
+    }
   }
 
-  const expectOrderId = await page.locator(".col-text").textContent
-if(orderId === expectOrderId){
-  
-}
-
-
+  const expectOrderId = await page.locator(".col-text").textContent;
+  expect(orderId.includes(expectOrderId)).toBeTruthy();
 });
 
 // await page.locator('input[type="text"]'.nth(1)).fill("324");
