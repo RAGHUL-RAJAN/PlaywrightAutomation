@@ -24,7 +24,3 @@ test('@Web Client App login', async ({ page }) => {
    console.log(titles); 
  
 })
-
-
-
-
