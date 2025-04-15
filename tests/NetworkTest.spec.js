@@ -18,10 +18,10 @@ test("Place to cart", async ({ page }) => {
 
     await page.goto("https://rahulshettyacademy.com/client");
 
-    await page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/67f54f5ffc76541aad25a62f",
+    await page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*",
        async route =>{
             const response = await page.request.fetch(route.request());
-            let body = JSON.stringify(fakePlayloadOrders);
+            let body = JSON.stringify(fakePlayloadOrders);          // Javascript Obj convert into Json 
             route.fulfill(
                 {
                     response,
@@ -29,10 +29,10 @@ test("Place to cart", async ({ page }) => {
                 }
             )
         }
+        // Intercepting response - API response -> {playwright Fake response} -> browser -> render data on frontend
     )
     
     await page.locator("button[routerlink*='myorders']").click();
-    await page.pause();
-    await page.locator("tbody").waitFor();
-    const row = await page.locator("tbody tr");
+    await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*");
+    console.log(await page.locator(".mt-4").textContent());
 });
