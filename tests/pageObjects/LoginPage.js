@@ -6,8 +6,8 @@ class LoginPage {
         this.UserPassword = page.locator("#userPassword")
     }
 
-    async goto(){
-        await this.page.goTo("https://rahulshettyacademy.com/client");
+    async goTo(){
+        await this.page.goto("https://rahulshettyacademy.com/client");
     }
 
     async validLogin(username, password) {

@@ -3,8 +3,8 @@ const { test, expect } = require("@playwright/test");
 test("Addto Carts", async ({ page }) => {
   const products = page.locator(".card-body");
   const email = "jacksparrow007@gmail.com";
-  const productName = "ZARA COAT 3";
   const password = "Qwerty@123";
+  const productName = "ZARA COAT 3";
 
   await page.goto("https://rahulshettyacademy.com/client");
   await page.locator("#userEmail").fill(email);
