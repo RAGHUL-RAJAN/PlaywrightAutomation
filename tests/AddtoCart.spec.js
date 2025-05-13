@@ -64,7 +64,9 @@ test("Addto Carts", async ({ page }) => {
     }
   }
 
-  const expectOrderId = await page.locator(".col-text").textContent;
+  await expect(page.locator(".col-text")).toHaveCount(1);
+  const expectOrderId = (await page.locator(".col-text").textContent())?.trim();
+  expect(expectOrderId).not.toBeNull();
   expect(orderId.includes(expectOrderId)).toBeTruthy();
 });
 

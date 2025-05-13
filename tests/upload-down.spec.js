@@ -13,7 +13,6 @@ async function writeTest(searchText, replaceText,change, filepath) {
     await workbook.xlsx.writeFile(filepath);
 }
 
-
 async function readExcel(worksheet, searchText) {
     let output = { row: -1, column: -1 };
     worksheet.eachRow((row, rowNumber) => {
