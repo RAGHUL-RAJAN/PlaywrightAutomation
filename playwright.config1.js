@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig, devices } from "@playwright/test";
 import { trace } from "console";
+import { permission } from "process";
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -30,8 +31,11 @@ const config = {
         browserName: "chromium",
         headless: false,
         screenshot: "on",
+        ignoreHttpsErrors : true,
+        Permissions : ['geolocation'],
         trace: "on",
-        viewport : {width :720,height:720}
+        // ...devices['Galaxy S9+']
+        // viewport : {width :720,height:720}
       }
     }
   ]
