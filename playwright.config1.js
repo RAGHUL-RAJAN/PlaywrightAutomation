@@ -19,9 +19,9 @@ const config = {
       use: {
         browserName: "webkit",
         headless: true,
-        screenshot: "on",
+        screenshot: "off",
         trace: "on",
-        /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+        ...devices['iPhone 11'],
       }
     },
     {
@@ -30,8 +30,8 @@ const config = {
         browserName: "chromium",
         headless: false,
         screenshot: "on",
-        trace: "retain-on-failure",
-        /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+        trace: "on",
+        viewport : {width :720,height:720}
       }
     }
   ]
