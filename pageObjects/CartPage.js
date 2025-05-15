@@ -1,15 +1,18 @@
-class CartPage {
+const {test, expect} = require('@playwright/test');
+class CartPage
+{
+constructor(page)
+{
+    this.page = page;
+    this.cartProducts = page.locator("div li").first();
+    this.productsText = page.locator(".card-body b");
+    this.cart =  page.locator("[routerlink*='cart']");
+    this.orders = page.locator("button[routerlink*='myorders']");
+    this.checkout = page.locator("text=Checkout");
 
-    constructor() {
-        this.page = this.page;
-        this.cart = page.locator("div li").first();
-        this.cart = page.locator("[routerlink*='cart']");
-        this.orders = page.locator("button[routerlink*='myorders']");
-        this.checkout = page.locator("text=Checkout");
+}
 
-    }
-
-    async VerifyProductIsDisplayed(productName)
+async VerifyProductIsDisplayed(productName)
 {
    
     await this.cartProducts.waitFor();

@@ -1,5 +1,11 @@
-{
+[{
     "username" : "jacksparrow007@gmail.com",
     "password" : "Qwerty@123",
     "productName" : "zara coat 3"
+},
+{
+    "username" : "jacksparrow007@gmail.com",
+    "password" : "Qwerty@123",
+    "productName" : "zara coat 4"
 }
+]

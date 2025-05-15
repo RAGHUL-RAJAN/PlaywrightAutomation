@@ -2,11 +2,13 @@ const { test, expect } = require('@playwright/test');
 const { POManager } = require('../pageObjects/POManager');
 const dataset = JSON.parse(JSON.stringify(require("../utils/placeorderTestData.json")));
 
-test.only('@Web Client App login', async ({ page }) => {
-   const poManager = new POManager(page);
-   // const email = "jacksparrow007@gmail.com";
-   // const password = "Qwerty@123";
-   // const productName = 'zara coat 3';
+for(const data of dataset)
+{
+    
+test.only(`Client App login for ${data.productName}`, async ({ page }) => {
+
+    const poManager = new POManager(page);
+
    const products = page.locator(".card-body");
    const loginPage = poManager.getLoginPage();
    await loginPage.goTo();
@@ -30,4 +32,4 @@ test.only('@Web Client App login', async ({ page }) => {
 
 })
 
-
+}
