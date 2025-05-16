@@ -12,7 +12,12 @@ const config = {
   expect: {
     timeout: 3000,
   },
-  reporter: "html",
+  // reporter: "html",
+  reporter: [
+    ['list'],                   // Console output
+    ['html', { outputFolder: 'html-report' }],  // Playwright HTML report
+    ['allure-playwright']       // Allure results
+  ],
 
   use: {
     browserName: "chromium",
