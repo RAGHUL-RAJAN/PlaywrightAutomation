@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test",
+    "regression": "npx playwright test AddtoCart.spec.js --headed",
+    "webTest":"npx playwright test AddtoCart.spec.js --grep @web",
+    "APITest":"npx playwright test AddtoCart.spec.js --grep @API",
+    "SafariNewConfig":"npx playwright test AddtoCart.spec.js --config playwright.config1.js --project=safari",
     "allure:generate": "npx allure-commandline generate ./allure-results --clean -o ./allure-report",
     "allure:open": "npx allure-commandline open ./allure-report"
   },
