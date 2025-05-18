@@ -24,18 +24,14 @@ test("@smoke Addto Carts", async ({ page }) => {
 
   await page.locator("div li").first().waitFor();
   await expect(page.getByText("ZARA COAT 3")).toBeVisible();
-
   await page.getByRole("button", { name: "Buy Now" }).click();
-
   await page.getByPlaceholder("Select Country").pressSequentially("ind");
-
-  await page.getByRole("button",{name :'india'}).nth(1).click();
+  await page.getByRole("button", { name: 'india' }).nth(1).click();
 
   // await page.pause();
   await page.getByText("Place Order").click();
-
   await expect(page.getByText("Thankyou for the order.")).toBeVisible();
-   
+
 });
 
 // await page.locator('input[type="text"]'.nth(1)).fill("324");
