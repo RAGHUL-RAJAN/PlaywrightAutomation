@@ -35,4 +35,5 @@ test("Place to cart", async ({ page }) => {
     await page.locator("button[routerlink*='myorders']").click();
     await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*");
     console.log(await page.locator(".mt-4").textContent());
+    
 });
