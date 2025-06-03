@@ -27,7 +27,6 @@ test("Place to cart", async ({ page }) => {
                     response,
                     body,
                 }
-                
             )
         }
         // Intercepting response - API response -> {playwright Fake response} -> browser -> render data on frontend
