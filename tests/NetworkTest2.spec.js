@@ -8,7 +8,6 @@ test('Security test request intrupt',async({page})=>{
     await page.getByRole("button", { name: "Login" }).click();
     await page.waitForLoadState("networkidle");
     await page.locator(".card-body b").first().waitFor();
-
         await page.locator("button[routerlink*='myorders']").click();
         await page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=*",
             route=> route.continue({url:"https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=680865dffc76541aad3b43ee1"}) );
