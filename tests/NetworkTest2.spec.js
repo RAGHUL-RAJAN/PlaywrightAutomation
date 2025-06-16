@@ -13,6 +13,5 @@ test('Security test request intrupt',async({page})=>{
             route=> route.continue({url:"https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=680865dffc76541aad3b43ee1"}) );
             await page.locator("button:has-text('View')").first().click();
             await page.pause();
-
 })
 
