@@ -25,4 +25,5 @@ test("playwright special locators", async ({ page }) => {
     .click();
 
     await page.pause();
+    
 });

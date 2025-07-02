@@ -1,7 +1,6 @@
-const {test, expect} = require('@playwright/test')
+const { test, expect } = require('@playwright/test')
 
-test('first playwright test',async ({page})=>
-{
+test('first playwright test', async ({ page }) => {
     const userName = page.locator("[placeholder='Email']");
     const signIn = page.locator("//span[text()='Sign in']");
 
@@ -23,7 +22,7 @@ test('first playwright test',async ({page})=>
 
 });
 
-test("UI basic",async({page})=>{
+test("UI basic", async ({ page }) => {
 
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
     const userName = page.locator('#username');
@@ -50,8 +49,7 @@ test("UI basic",async({page})=>{
 
 })
 
-test('child windows handling',async({browser})=>
-    {
+test('child windows handling', async ({ browser }) => {
 
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -60,15 +58,15 @@ test('child windows handling',async({browser})=>
 
     const [newPage] = await Promise.all([
 
-    context.waitForEvent('page'),
-    documentLink.click(),
-    
+        context.waitForEvent('page'),
+        documentLink.click(),
+
     ])
 
     const text = await newPage.locator(".red").textContent();
 
     const arrayText = text.split("@");
-   const mail = arrayText[1].split(" ")[0]
+    const mail = arrayText[1].split(" ")[0]
     console.log(mail);
 
     page.locator("#username").fill(mail)

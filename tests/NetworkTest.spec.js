@@ -17,7 +17,6 @@ test("Place to cart", async ({ page }) => {
     }, response.token);
 
     await page.goto("https://rahulshettyacademy.com/client");
-
     await page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*",
        async route =>{
             const response = await page.request.fetch(route.request());
