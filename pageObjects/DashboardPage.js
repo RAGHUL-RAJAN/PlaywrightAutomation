@@ -11,7 +11,6 @@ constructor(page)
 
 async searchProductAddCart(productName)
 {
-   
     const titles= await this.productsText.allTextContents();
     console.log(titles);
     const count = await this.products.count();
